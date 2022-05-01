@@ -12,6 +12,10 @@ Design a low-level parking system using C++
 The parking system is implemented using a class called 'parking'
 The class contains 4 private members: light, standard, heavy, and total.
 Each of these members represent the number of vehicles of that type currently parked in the parking lot.
+
+`parking::parking()`
+This is a constructor to initialize all variables to zero.
+
 There are 4 public member functions:
 1. `void parking::parkVehicle(int type)`
 This function parks a vehicle. It first checks if a spot for that vehicle type is available or not. If it is available, the vehicle is parked in it and the value of respective variable is incrememted by one.
