@@ -4,18 +4,18 @@ using namespace std;
 class parking
 {
     private:
+    //Member Variable to store the number of vehicles of the given type.
     int heavy;
     int standard;
     int light;
-    int total;
-    int floor_status[4];
+    int total;  //Store total number of vehicles parked
 
     public:
     parking();
-    void parkVehicle(int type);
-    void removeVehicle(int type);
-    int available(int type);   //type = 1 for light, 2 for standard, 3 for heavy
-    void Number_of_empty_spots();
+    void parkVehicle(int type);     //To Park a vehicle
+    void removeVehicle(int type);   //To Remove a vehicle from parking lot
+    int available(int type);        //To Check if parking space is available or not of type = 1 for light, 2 for standard, 3 for heavy
+    void Number_of_empty_spots();   //To Print the number of empty parking spaces for each type of vehicle
 };
 
 int main()
@@ -64,12 +64,11 @@ int main()
 
 parking::parking()
 {
+    //Inititalize all variables with zero
     heavy = 0;
     standard = 0;
     light = 0;
     total = 0;
-    for(int i = 0; i < 4; i++)
-        floor_status[i] = 0;  
 }
 
 int parking::available(int type)
@@ -92,7 +91,7 @@ int parking::available(int type)
             return 1;
         return 0;
     }
-    else
+    else    //Wrong type of vehicle entered
     {
         cout << "\nInvalid type of vehicle";
         return 0;
@@ -102,10 +101,10 @@ int parking::available(int type)
 void parking::parkVehicle(int type)
 {
     int status;
-    status = available(type);
+    status = available(type); //Check if space is available for that vehicle or not
     if(status == 1)
     {
-        int which_floor = total/10;
+        int which_floor = total/100;
         if(which_floor == 0)
             cout << "\nVehicle parked on Ground Floor\n";
         else if(which_floor == 1)
@@ -114,7 +113,9 @@ void parking::parkVehicle(int type)
             cout << "\nVehicle parked in Basement 2\n";
         else
             cout << "\nVehicle parked in Basement 3\n";
-        total++;
+        total++; //Increment the total number of vehicles
+        
+        //Increment the type of vehicle
         if(type == 1)
             light++;
         else if(type == 2)
@@ -140,7 +141,7 @@ void parking::removeVehicle(int type)
         if(light > 0)
         {    
             cout << "\nLight Vehicle removed\n";
-            light--;
+            light--;    //Decrement the type of vehicle
         }
         else
             cout << "\nNo light vehicle in parking lot\n";
@@ -150,7 +151,7 @@ void parking::removeVehicle(int type)
         if(standard > 0)
         {
             cout << "\nStandard Vehicle removed\n";
-            standard--;
+            standard--; //Decrement the type of vehicle
         }
         else
             cout << "\nNo standard vehicle in parking lot\n";
@@ -160,7 +161,7 @@ void parking::removeVehicle(int type)
         if(heavy > 0)
         {    
             cout << "\nHeavy Vehicle removed\n";
-            heavy--;
+            heavy--;    //Decrement the type of vehicle
         }
         else
             cout << "\nNo heavy vehicle in parking lot\n";
