@@ -18,8 +18,8 @@ This is a constructor to initialize all variables to zero.
 
 There are 4 public member functions:
 1. `void parking::parkVehicle(int type)`
-This function parks a vehicle. It first checks if a spot for that vehicle type is available or not. If it is available, the vehicle is parked in it and the value of respective variable is incrememted by one.
-If parking space is not available, vehicle cannot be parked and the message is diaplayed.
+This function parks a vehicle. It first checks if a spot for that vehicle type is available or not. If it is available, the vehicle is parked in it and the value of respective variable is incremented by one.
+If parking space is not available, vehicle cannot be parked and the message is displayed.
 
 2. `int parking::available(int type)`
 This function checks whether a parking spot for a particular vehicle type is available or not and returns 1 or 0 depending on the result.
